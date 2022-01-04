@@ -66,7 +66,5 @@ function addToList(){
         //    </li>        
         // </ul>
     }
-
     
 }
-     

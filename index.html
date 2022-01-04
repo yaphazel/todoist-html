@@ -10,12 +10,12 @@
     <body onload="getWord()">
         <section>
             <div>
-                <form id="addTaskContainer">
+                <form id="addTaskContainer" onkeypress="return event.keyCode != 13">
                     <button type="button">
                         <i class="fas fa-list"></i>
                     </button>
                     <input type="text" id="addTask" value="" placeholder="Add Task..." autocomplete="off">
-                    <button type="button" onclick="addToList()" >
+                    <button type="button" id="button" onclick="addToList()" >
                         <i class="fas fa-plus"></i>
                     </button>
                 </form>
