@@ -13,6 +13,8 @@ if (tasksArr != []){
     count = innerCount;  
 } 
 
+
+
 function getWord(){
     inputText = document.querySelector("#addTask");
 }
@@ -95,6 +97,12 @@ function addToList(){
         createList(text,count);
         sessionStorage.setItem('array', JSON.stringify(tasksArr));
 
-    }
-    
+    } 
 }
+var input = document.getElementById("addTask");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("button").click();
+  }
+});
