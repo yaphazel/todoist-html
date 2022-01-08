@@ -4,9 +4,9 @@ var modeData = JSON.parse(sessionStorage.getItem('mode'));
 var colorMode = (modeData == null || modeData == true) ? true : false;
 var inputText;
 var count = 0;
+var edit = false;
 
-
-if (tasksArr != []){
+if (tasksArr != []){    // display saved tasks on refresh
     var innerCount = 0;
     tasksArr.forEach(task => {
         createList(task[0] , task[1]);
@@ -15,18 +15,22 @@ if (tasksArr != []){
     }) 
     count = innerCount;  
 } 
-if(colorMode == false){
+if(colorMode == false){ // toggle to dark mode on refresh
+    let mode = document.getElementById("changeMode");
     document.body.classList.toggle("dark-mode")
+    mode.innerHTML = "Light";
+    mode.previousElementSibling.setAttribute("class","far fa-sun");
 }
-
+// Data
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const date = new Date();
 let fullday = date.getDate()+" "+months[date.getMonth()]+" "+date.getFullYear()
 document.getElementById("displayDate").innerHTML = fullday
 
-function getWord(){
+function getWord(){ // get input word
     inputText = document.querySelector("#addTask");
 }
+
 function updateStatus(boolean, id){
     for(let i= 0; i < tasksArr.length; i++){
         if(tasksArr[i][1] == id){
@@ -145,7 +149,7 @@ function changeMode(){
     } 
     
 }
-var edit = false;
+
 function editWord(name){
     var button = document.getElementById(name);
     var p = button.previousElementSibling;
@@ -203,3 +207,30 @@ input.addEventListener("keyup", function(event) {
    document.getElementById("button").click();
   }
 });
+
+
+// var showAll = true;
+
+
+// function removeTask(){
+//   let div = document.getElementById("demo")
+//   while(div.firstChild){   
+//       div.removeChild(div.firstChild);
+//   }
+//   filterTask()
+// }
+
+// function filterTask(){
+//    for(i = 0; i < tasksArr.length; i++){
+//        	if(showAll == true){
+//         	if(tasksArr[i][1] == "uncompleted"){
+//           	createTask(tasksArr[i][0]);
+//         	}
+//         	showAll = false;
+//       	}
+//       	else{
+//         	createTask(tasksArr[i][0]);
+//         	showAll=true;
+//      		}
+//    }
+// }
