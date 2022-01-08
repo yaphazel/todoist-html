@@ -8,16 +8,20 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     </head>
     <body onload="getWord()">
-        <h1 id="displayDate"></h1>
-        <section>
+        <section id="header">
+            <small><i class="far fa-moon"></i><button type="button" id="changeMode" onclick="changeMode()">Dark</button></small>
+        </section>
+        <section id="body">
             <div>
+                <h1 id="displayDate"></h1>
                 <div id="addTaskContainer">
                     <button type="button" id="button-done">
-                        <i class="fas fa-list"></i>
+                        <i id="i-done" class="fas fa-list"></i>
                     </button>
+                    <p id="sections"></p>
                     <input type="text" id="addTask" value="" placeholder="Add Task..." autocomplete="off">
                     <button type="submit" id="button" onclick="addToList()" >
-                        <i class="fas fa-plus"></i>
+                        <i id="i-del" class="fas fa-plus"></i>
                     </button>
                 </div>
             </div>
@@ -31,9 +35,12 @@
                 </ul>
             </div>
         </section>
-        
-    
+        <!-- <footer>
+            <small> &copy; Made by Hazel Yap | <i class="far fa-moon"></i><button type="button" id="changeMode" onclick="changeMode()">Dark Mode</button></small>
+        </footer>
+     -->
         
         <script src="index.js"></script>
     </body>
+    
 </html>
