@@ -17,9 +17,9 @@ if (tasksArr != []){    // display saved tasks on refresh
 } 
 if(colorMode == false){ // toggle to dark mode on refresh
     let mode = document.getElementById("changeMode");
-    document.body.classList.toggle("dark-mode")
+    document.body.classList.toggle("dark--theme")
     mode.innerHTML = "Light";
-    mode.previousElementSibling.setAttribute("class","far fa-sun");
+    mode.previousElementSibling.setAttribute("class","mode__i far fa-sun");
 }
 // Data
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -52,13 +52,13 @@ function doneWord(name){
     const pnextSib = buttonParent.nextElementSibling;
     const pnextSibId = buttonParent.nextElementSibling.id;
     if (pnextSib.style.fontStyle =="italic"){ //completed -> uncompleted
-        buttonParent.childNodes[0].setAttribute("class","far fa-check-circle");
+        buttonParent.childNodes[0].setAttribute("class","list__li__i far fa-check-circle");
         pnextSib.style.fontStyle="normal";
         pnextSib.style.textDecoration="none";
         updateStatus(false, pnextSibId);
     }
     else{ //uncompleted -> completed
-        buttonParent.childNodes[0].setAttribute("class","fas fa-check-circle");
+        buttonParent.childNodes[0].setAttribute("class","list__li__i fas fa-check-circle");
         pnextSib.style.fontStyle="italic";
         pnextSib.style.textDecoration="line-through";
         updateStatus(true, pnextSibId);
@@ -66,7 +66,7 @@ function doneWord(name){
 }
 
 function createList(text, count){
-    var list = document.querySelector("#list");
+    var list = document.querySelector("#displayList");
         let li = document.createElement("li");
         let p = document.createElement("p");
         let iDone = document.createElement("i");
@@ -78,15 +78,18 @@ function createList(text, count){
 
         p.textContent = text;
         li.setAttribute("id","li"+count);
+        li.setAttribute("class","list__li");
         
-        iDone.setAttribute("class","far fa-check-circle");
-        iEdit.setAttribute("class","fas fa-pen");
-        iDel.setAttribute("class","fas fa-times");
+        
+        iDone.setAttribute("class","list__li__i far fa-check-circle");
+        iEdit.setAttribute("class","list__li__i fas fa-pen");
+        iDel.setAttribute("class","list__li__i fas fa-times");
         doneButton.setAttribute("id","done"+count);
         editButton.setAttribute("id","edit"+count);
         delButton.setAttribute("id","del"+count);
+        p.setAttribute("class", "list__li__p");
         p.setAttribute("id", count);
-        p.setAttribute("class", "task");
+        
 
         doneButton.setAttribute("onclick","doneWord(this.id)");
         editButton.setAttribute("onclick","editWord(this.id)");
@@ -132,18 +135,18 @@ function addToList(){
 
 
 function changeMode(){
-    document.body.classList.toggle("dark-mode")
+    document.body.classList.toggle("dark--theme")
     let mode = document.getElementById("changeMode");
     let modeprevSib = mode.previousElementSibling;
     if(colorMode == true){ //light -> dark
         mode.innerHTML = "Light";
-        modeprevSib.setAttribute("class","far fa-sun");
+        modeprevSib.setAttribute("class","mode__i far fa-sun");
         colorMode = false;
         sessionStorage.setItem('mode', JSON.stringify(colorMode));
     }
     else{ // dark -> light
         mode.innerHTML = "Dark";
-        modeprevSib.setAttribute("class","far fa-moon");
+        modeprevSib.setAttribute("class","mode__i far fa-moon");
         colorMode = true;  
         sessionStorage.setItem('mode', JSON.stringify(colorMode));
     } 
@@ -162,10 +165,11 @@ function editWord(name){
             allBut[i].disabled = true;
         }
         button.disabled=false;
-        button.children[0].setAttribute("class","fas fa-check")
+        button.children[0].setAttribute("class","list__li__i fas fa-check")
         li.removeChild(p);
         let input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("class", "list__li__input");
         input.setAttribute("id", pId);
         input.setAttribute("value", pText);
         li.insertBefore(input, li.children[1]);
@@ -176,13 +180,13 @@ function editWord(name){
         for(let i= 0; i < allBut.length; i++){
             allBut[i].disabled = false;
         }
-        button.children[0].setAttribute("class","fas fa-pen");
+        button.children[0].setAttribute("class","list__li__i fas fa-pen");
         let input = document.getElementById(pId);
         let inputText = input.value;
         li.removeChild(input);
         let p = document.createElement("p");
         p.setAttribute("id", pId);
-        p.setAttribute("class", "task");
+        p.setAttribute("class", "list__li__p");
         p.textContent = inputText;
         li.insertBefore(p, li.children[1]);
         updateWord(inputText,pId);
@@ -208,10 +212,7 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-
 // var showAll = true;
-
-
 // function removeTask(){
 //   let div = document.getElementById("demo")
 //   while(div.firstChild){   
