@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content>
         <title>Todolist</title>
+        
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     </head>
-    <body onload="getWord()">
+    <body>
         <section class="header" id="header">
             <small class="mode">
                 <i class="mode__i far fa-moon"></i>
@@ -29,15 +30,21 @@
                 </div>
             </div>
             <div>
-                <ul class="list" id="displayList">
-                    <!-- <li> 
-                        <button id="done1"><i></i></button>
-                        <p></p>
-                        <button><i></i></button>
-                    </li> -->
-                </ul>
+                <ul class="list" id="displayList"></ul>
+            </div>
+            <div class="sub-display">
+                <div class="sub-display__count" id="displayCount">0 Tasks</div>
+                <div class="sub-display__select">
+                    <select id="selectClass" onchange="filterTasks()">
+                        <option value="all">All</option>
+                        <option value="active">Active</option>
+                        <option value="complete">Complete</option>
+                    </select>
+                </div>
+                <div class="sub-display__clear">Clear Completed</div>
             </div>
         </section>
+
         <!-- <footer>
             <small> &copy; Made by Hazel Yap | <i class="far fa-moon"></i><button type="button" id="changeMode" onclick="changeMode()">Dark Mode</button></small>
         </footer>
