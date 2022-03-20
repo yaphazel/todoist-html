@@ -1,5 +1,5 @@
 # todoist-v1
-https://yaphazel.github.io/todoist-v1/
+https://yaphazel.github.io/todoist-html/
 
 13.03.2022 Update
 1. Task counting function
