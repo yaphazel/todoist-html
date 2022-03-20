@@ -32,61 +32,19 @@ input[type="text"]{
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance:none;
   appearance: none;
   outline: none;
-  border:none;
-}
-/* 
-.sub-display__status select {
-  display: none; 
-}
-
-.select-selected {
-  background-color: DodgerBlue;
-}
-
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-
-.select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
+  border: 0 !important;
+  box-shadow: none;
+  background: #ffffff;
+  text-align-last:left;
+  padding-left: 5px;
+  width:80%;
+  font-size: 0.9rem;
 }
 
 
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-
-
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-} */
 .list{
   list-style-type:none;
   display: inline-flex;
@@ -156,6 +114,17 @@ select {
 .dark--theme .mode__i, .dark--theme .mode button{
   color:white;
 }
+.dark--theme .sub-display{
+  background: #282A2D;
+}
+.dark--theme .sub-display__select:after{
+  color:white;
+  background: #35414a;
+}
+.dark--theme select, .dark--theme option{
+  color:white;
+  background: #35414a;
+}
 
 .tasks{
   font-size: 1.5rem;
@@ -204,21 +173,34 @@ select {
   max-width: 700px;
   display: flex;
   margin: auto;
-  margin-bottom: 5px;
+  margin-top: 0.5rem;
+  padding: 10px 0px 10px 0px;
+
 }
 .sub-display__count, .sub-display__select, .sub-display__clear{
-  border: 1px solid #ccc;
   color:white;
   flex: 1;
 }
-/* .sub-display__status{
-  border: 1px solid #ccc;
-  flex: 1;
-}
-.sub-display__clear{
-  border: 1px solid #ccc;
-  flex: 1;
-} */
+
+.sub-display__select{
+  margin:0px 5px;
+  position: relative;
+  display: flex;
+  height: 1.2em;
+  width: 1.5em;
+  justify-content: center;
+} 
+
+.sub-display__select:after{
+  content: '\25BC';
+  position: absolute;
+  padding: 0 0.2em;
+  right:10px;
+  color:white;
+  background: #e2c9c1;
+  cursor:pointer;
+  pointer-events: none;
+} 
 
 .mode{
   position:absolute;
