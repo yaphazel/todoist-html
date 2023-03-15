@@ -14,6 +14,11 @@ Link to Website : https://yaphazel.github.io/todoist-html/
 * ![javascript](https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
 
+## Feature
+Some features of the app include:
+* The ability to add, edit, and delete tasks as well as mark them as complete upon task completion.
+* Use of session cookie to store user data 
+
 ## Recent Updates
 
 ### 13.03.2022 Update
