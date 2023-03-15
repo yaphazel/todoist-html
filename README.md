@@ -17,10 +17,10 @@ Link to Website : https://yaphazel.github.io/todoist-html/
 ## Recent Updates
 
 ### 13.03.2022 Update
-1. Task counting function
-2. Addition of section for task count, filtering tasks (HTML only) and clearing completed tasks (HTML only)
+1. Add "task counting" function (JavaScript)
+2. Add "task counting", "filter tasks" and "clear completed tasks" code (HTML) 
 
 ### 20.03.2022 Update
-1. Filter tasks function and Clear completed tasks function 
-2. CSS for additional section
-3. Javascript code reorganizing
+1. Add "filter tasks" function (JavaScript) and "clear completed tasks" function (JavaScript)
+2. Update CSS
+3. Organize JavaScript code 
